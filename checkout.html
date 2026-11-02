@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedha Varnika | Art Meets Tradition</title>
+    <link rel="icon" type="image/jpeg" href="Image/Logo.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="checkout">
+    <header class="site-header">
+      <div class="announcement">Free Shipping on Orders Above &#8377;999 <span aria-hidden="true">&#10022;</span></div>
+      <div class="nav-shell">
+        <button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html" data-nav-page="home">Home</a>
+          <a href="shop.html" data-nav-page="shop">Shop</a>
+          <a href="track.html" data-nav-page="track">Track Order</a>
+          <a href="wishlist.html" data-nav-page="wishlist">Wishlist</a>
+        </nav>
+        <a class="brand" href="index.html" aria-label="Vedha Varnika home">
+          <img class="brand-logo" src="Image/Logo.jpeg" alt="Vedha Varnika - Art Meets Tradition" />
+        </a>
+        <div class="header-actions" aria-label="Header actions">
+          <button class="icon-button search-action" type="button" aria-label="Search products" title="Search products">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+          </button>
+          <button class="icon-button account-action" type="button" aria-haspopup="dialog" aria-controls="profileMenu" aria-expanded="false" aria-label="Login" title="Login">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21c1.8-4 5-6 8-6s6.2 2 8 6" /></svg>
+            <span class="login-label">Login</span>
+          </button>
+          <a class="icon-button wishlist-action" href="wishlist.html" aria-label="Wishlist" title="Wishlist">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 5.7c-1.8-2.1-5-1.9-6.7.2L12 8.4 9.9 5.9C8.2 3.8 5 3.6 3.2 5.7c-1.9 2.2-1.5 5.6.7 7.5L12 20l8.1-6.8c2.2-1.9 2.6-5.3.7-7.5Z" /></svg>
+            <span class="wishlist-count" aria-label="0 saved wishlist items">0</span>
+          </a>
+          <button class="icon-button cart-button" type="button" aria-label="Open cart" aria-controls="cartDrawer" aria-expanded="false" title="Cart">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 8h14l-1.5 11h-11L6 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+            <span class="cart-count" aria-label="0 items in cart">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <button class="menu-backdrop" id="menuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
+    <aside class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" inert>
+      <div class="menu-panel-head"><img class="menu-logo" src="Image/Logo.jpeg" alt="Vedha Varnika — Art Meets Tradition" /><button class="menu-close" type="button" aria-label="Close menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
+      <nav class="menu-links" aria-label="Store navigation">
+        <a href="index.html" data-nav-page="home">Home</a><a href="shop.html#shop" data-nav-page="shop">Shop All</a><a href="shop.html?category=Kurtis#shop">Kurtis</a><a href="shop.html?category=Co-ord%20Sets#shop">Co-ord Sets</a>
+        <a href="shop.html?category=Dresses#shop">Dresses</a><a href="shop.html?category=Tops#shop">Tops</a><a href="index.html#new-arrivals">New Arrivals</a><a href="index.html#bestsellers">Bestsellers</a>
+        <a href="track.html" data-nav-page="track">Track Order</a><a href="wishlist.html" data-nav-page="wishlist">Wishlist</a><a href="account.html">Login / My Account</a><a href="index.html#about">About Us</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="checkout-section" id="checkout" aria-labelledby="checkout-title">
+        <div class="checkout-copy">
+          <img class="checkout-logo" src="Image/Logo.jpeg" alt="Vedha Varnika - Art Meets Tradition" />
+          <p class="section-kicker">Checkout</p>
+          <h2 id="checkout-title">Delivery &amp; Contact</h2>
+        </div>
+        <form class="checkout-form" id="checkoutForm" novalidate>
+          <p class="demo-checkout-note">Prototype checkout: an order is recorded in this browser only. No payment, store submission, email, or courier booking is connected.</p>
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Phone
+              <input name="phone" type="tel" autocomplete="tel" required />
+            </label>
+            <label>
+              City
+              <input name="city" type="text" autocomplete="address-level2" required />
+            </label>
+            <label>
+              State
+              <input name="state" type="text" autocomplete="address-level1" required />
+            </label>
+            <label class="full-field">
+              Address
+              <textarea name="address" rows="3" autocomplete="street-address" required></textarea>
+            </label>
+            <label>
+              Pincode
+              <input name="pincode" type="text" inputmode="numeric" autocomplete="postal-code" required />
+            </label>
+            <label>
+              Payment Method
+              <select name="paymentMethod" required>
+                <option value="cod">Cash on Delivery</option>
+                <option value="online" disabled>Online payment - Stage 5</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="checkout-summary" id="checkoutSummary"></div>
+          <div class="checkout-review">
+            <div>
+              <span>Final Total</span>
+              <strong id="checkoutTotal">&#8377;0</strong>
+            </div>
+            <button class="button-primary" type="submit">Place Order</button>
+          </div>
+          <p class="form-note" id="checkoutMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="order-confirmation" id="orderConfirmation" aria-live="polite" hidden></section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true" inert>
+      <div class="cart-header">
+        <h2>Cart</h2>
+        <button class="icon-button close-cart" type="button" aria-label="Close cart">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-breakdown">
+          <div><span>Subtotal</span><strong id="cartSubtotal">&#8377;0</strong></div>
+          <div><span>Shipping</span><strong id="cartShipping">&#8377;0</strong></div>
+        </div>
+        <div class="cart-total"><span>Total</span><strong id="cartTotal">&#8377;0</strong></div>
+        <a class="button-primary" href="checkout.html" id="checkoutLink">Checkout</a>
+      </div>
+    </aside>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Vedha Varnika home">
+        <img class="footer-logo" src="Image/Logo.jpeg" alt="Vedha Varnika - Art Meets Tradition" />
+        <span>Art Meets Tradition</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="shop.html">Shop</a><a href="index.html#about">About</a><a href="track.html">Track Order</a><a href="wishlist.html">Wishlist</a>
+      </nav>
+      <p class="footer-note">Storefront prototype · Contact details and store policies need to be configured before launch.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
