@@ -650,6 +650,25 @@ function toggleMenu() {
   setMenuOpen(!elements.mobileNav.classList.contains("is-open"));
 }
 
+function handleCoveredMenuToggle(event) {
+  const toggle = elements.menuToggle;
+  if (!toggle || toggle.contains(event.target)) return false;
+
+  const rect = toggle.getBoundingClientRect();
+  const clickedToggle = event.clientX >= rect.left && event.clientX <= rect.right
+    && event.clientY >= rect.top && event.clientY <= rect.bottom;
+  const target = event.target.closest?.(".primary-nav, .auth-modal-backdrop, .auth-dialog, .drawer-backdrop, .cart-drawer, .mobile-nav");
+  const dialogControl = event.target.closest?.(".auth-dialog a, .auth-dialog button, .auth-dialog input, .auth-dialog select, .auth-dialog textarea");
+  if (!clickedToggle || !target || dialogControl) return false;
+
+  event.preventDefault();
+  event.stopPropagation();
+  if (elements.authModal?.classList.contains("is-open")) closeAuthModal();
+  if (elements.cartDrawer?.classList.contains("is-open")) closeCart();
+  toggleMenu();
+  return true;
+}
+
 function closeProfileMenu() {
   state.profileMenuOpen = false;
   if (elements.profileMenu) elements.profileMenu.hidden = true;
@@ -1985,21 +2004,6 @@ function bindEvents() {
     toggleMenu();
   });
 
-  // The account modal can cover the header. Hand a click at the covered
-  // hamburger through to the same menu toggle path instead of swallowing it.
-  on(elements.authModal, "click", (event) => {
-    if (!elements.authModal?.classList.contains("is-open") || !elements.menuToggle) return;
-    const toggleRect = elements.menuToggle.getBoundingClientRect();
-    const clickedToggle = event.clientX >= toggleRect.left && event.clientX <= toggleRect.right
-      && event.clientY >= toggleRect.top && event.clientY <= toggleRect.bottom;
-    if (!clickedToggle) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    closeAuthModal();
-    toggleMenu();
-  }, true);
-
   on(elements.mobileNav, "click", (event) => {
     if (event.target.closest("a, [data-open-auth]")) closeMenu();
   });
@@ -2008,6 +2012,8 @@ function bindEvents() {
   on(elements.menuBackdrop, "click", closeMenu);
 
   on(document, "click", (event) => {
+    if (handleCoveredMenuToggle(event)) return;
+
     if (elements.mobileNav?.classList.contains("is-open")) {
       const clickedMenu = elements.mobileNav.contains(event.target);
       const clickedToggle = elements.menuToggle?.contains(event.target);
